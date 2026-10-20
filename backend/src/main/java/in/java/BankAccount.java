@@ -26,12 +26,26 @@ public class BankAccount {
         return balance;
     }
     public void transferFunds(BankAccount destination, double amount) {
-        if (amount > balance) {
-            System.out.println("Insufficient funds");
+
+
+        if(destination == null || destination == this) {
+            System.out.println("Transfer Unsuccessful due to Invalid destination");
+        }
+        else if(amount <= 0 && amount > balance){
+            System.out.println("Transfer Unsuccessful due to unsufficient funds");
+        }
+        else{
+            balance -= amount;
+            destination.balance += amount;
+            System.out.println("Transfer Unsuccessful");
+            System.out.println("Transfer successful amount: " + amount);
+            System.out.println("Transfer successful destination: " + destination.balance);
+            System.out.println("Remaining Balance: " + balance);
+
         }
 
     }
-    private double getBalance() {
+    public double getBalance() {
         return balance;
     }
     public void displayAccountDetails(){
