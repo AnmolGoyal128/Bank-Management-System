@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monarch - Private Banking & Finance Dashboard</title>
+    <meta name="description" content="Private banking financial dashboard featuring accounts at a glance, fund transfers, and ledger management.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <div class="brand-icon">M</div>
+            <span class="brand-name">Monarch</span>
+            <span class="brand-tag">Banking &amp; Finance</span>
+        </a>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html" class="nav-link active">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="customers.html" class="nav-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    Customers
+                </a>
+            </li>
+            <li>
+                <a href="accounts.html" class="nav-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    Bank Accounts
+                </a>
+            </li>
+        </ul>
+        <div class="nav-actions">
+            <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">
+                <span class="theme-icon-moon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </span>
+                <span class="theme-icon-sun">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </span>
+                <span class="theme-toggle-label">Dark Mode</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Private Banking Dashboard Header -->
+        <header class="page-header">
+            <div class="page-title-group">
+                <div class="date-banner">MONDAY, OCTOBER 20</div>
+                <h1>Good evening, Anmol</h1>
+                <p>Here's your financial overview.</p>
+            </div>
+            <div class="header-actions">
+                <a href="accounts.html" class="btn btn-primary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                    Deposit
+                </a>
+                <a href="accounts.html" class="btn btn-secondary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg>
+                    Withdraw
+                </a>
+                <a href="accounts.html" class="btn btn-secondary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                    Transfer
+                </a>
+            </div>
+        </header>
+
+        <!-- Financial Overview Metrics -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-info">
+                    <h3>Total Account Balance</h3>
+                    <div class="metric-value" id="kpi-total-liquidity">₹17,000.00</div>
+                    <div class="metric-sub">
+                        <span>●</span> Available liquid balance
+                    </div>
+                </div>
+                <div class="metric-icon-box">🏛️</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-info">
+                    <h3>Registered Accounts</h3>
+                    <div class="metric-value" id="kpi-total-accounts">0</div>
+                    <div class="metric-sub">
+                        <span>●</span> Active ledger accounts
+                    </div>
+                </div>
+                <div class="metric-icon-box">💳</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-info">
+                    <h3>Active Customers</h3>
+                    <div class="metric-value" id="kpi-total-customers">0</div>
+                    <div class="metric-sub">
+                        <span>●</span> Client accounts
+                    </div>
+                </div>
+                <div class="metric-icon-box">👥</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-info">
+                    <h3>Completed Transactions</h3>
+                    <div class="metric-value" id="kpi-total-txns">0</div>
+                    <div class="metric-sub">
+                        <span>●</span> Reconciled entries
+                    </div>
+                </div>
+                <div class="metric-icon-box">📊</div>
+            </div>
+        </section>
+
+        <!-- Your Accounts at a Glance -->
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--brand-navy);">Your accounts at a glance</h2>
+                <a href="accounts.html" style="font-size: 0.88rem; color: var(--brand-emerald); text-decoration: none; font-weight: 600;">View all accounts &rarr;</a>
+            </div>
+            
+            <div id="accounts-glance-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+                <!-- Populated dynamically by JS -->
+            </div>
+        </div>
+
+        <!-- Two Quick Actions / Feature Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+            
+            <!-- Module 1: Customer Management -->
+            <div class="glass-panel" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                        <span class="badge badge-navy">Directory</span>
+                        <div style="font-size: 1.5rem;">👥</div>
+                    </div>
+                    <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.4rem;">Customer Management</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
+                        Register institutional and retail clients, manage linked accounts, and search the verified customer directory.
+                    </p>
+
+                    <div class="feature-tags-group">
+                        <span class="feature-tag">Client Registry</span>
+                        <span class="feature-tag">Account Association</span>
+                        <span class="feature-tag">Encrypted Records</span>
+                    </div>
+                </div>
+
+                <a href="customers.html" class="btn btn-secondary" style="width: 100%; justify-content: space-between; margin-top: 1.5rem;">
+                    <span>Open Customer Directory</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+
+            <!-- Module 2: Bank Account Operations -->
+            <div class="glass-panel" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                        <span class="badge badge-emerald">Operations</span>
+                        <div style="font-size: 1.5rem;">💳</div>
+                    </div>
+                    <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.4rem;">Account Operations &amp; Ledger</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
+                        Execute fund transactions: deposits, withdrawals, and direct account-to-account transfers with real-time balance updates.
+                    </p>
+
+                    <div class="feature-tags-group">
+                        <span class="feature-tag">Direct Transfers</span>
+                        <span class="feature-tag">Instant Settlement</span>
+                        <span class="feature-tag">Audit Trails</span>
+                    </div>
+                </div>
+
+                <a href="accounts.html" class="btn btn-primary" style="width: 100%; justify-content: space-between; margin-top: 1.5rem;">
+                    <span>Open Account Operations</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <section class="glass-panel">
+            <div class="panel-header">
+                <h2 class="panel-title">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Recent Transactions
+                </h2>
+                <a href="accounts.html" style="font-size: 0.88rem; color: var(--brand-emerald); text-decoration: none; font-weight: 600;">View all &rarr;</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Account</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Date &amp; Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboard-txns-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const metrics = BankStore.getMetrics();
+            const accounts = BankStore.getAccounts();
+            
+            // Calculate active customer balance (Anmol Goyal: CUST-1001)
+            const anmolAccounts = accounts.filter(a => a.customerId === "CUST-1001");
+            const displayAccounts = anmolAccounts.length > 0 ? anmolAccounts : accounts;
+            const personalTotal = displayAccounts.reduce((sum, a) => sum + (parseFloat(a.balance) || 0), 0);
+            
+            document.getElementById("kpi-total-liquidity").textContent = BankStore.formatCurrency(personalTotal);
+            document.getElementById("kpi-total-customers").textContent = metrics.totalCustomers;
+            document.getElementById("kpi-total-accounts").textContent = metrics.totalAccounts;
+            document.getElementById("kpi-total-txns").textContent = metrics.totalTransactions;
+
+            // Render "Your accounts at a glance"
+            const glanceContainer = document.getElementById("accounts-glance-grid");
+
+            if (displayAccounts.length === 0) {
+                glanceContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 1.5rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">No accounts available yet.</div>`;
+            } else {
+                glanceContainer.innerHTML = displayAccounts.slice(0, 2).map(a => {
+                    const maskedNum = a.accountNumber.length > 8 ? `${a.accountNumber.slice(0, 4)} •••• •••• ${a.accountNumber.slice(-4)}` : a.accountNumber;
+                    return `
+                        <div class="metric-card" style="flex-direction: column; align-items: flex-start; justify-content: space-between; min-height: 140px;">
+                            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                                <div>
+                                    <div style="font-weight: 700; color: var(--brand-navy); font-size: 1.05rem;">${a.accountType || "Savings Account"}</div>
+                                    <div style="font-size: 0.78rem; color: var(--text-secondary); font-variant-numeric: tabular-nums;">${maskedNum}</div>
+                                </div>
+                                <span class="badge badge-emerald">Active</span>
+                            </div>
+                            <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end;">
+                                <div>
+                                    <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600;">Available balance</div>
+                                    <div style="font-size: 1.6rem; font-weight: 700; color: var(--brand-navy); font-variant-numeric: tabular-nums;">${BankStore.formatCurrency(a.balance)}</div>
+                                </div>
+                                <a href="accounts.html?accountNumber=${a.accountNumber}" class="btn btn-secondary btn-sm">Manage &rarr;</a>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+            }
+
+            // Render Recent Transactions
+            const txnsBody = document.getElementById("dashboard-txns-body");
+            const txns = BankStore.getTransactions().slice(0, 5);
+
+            if (txns.length === 0) {
+                txnsBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-secondary); padding: 1.5rem;">No recent transactions</td></tr>`;
+            } else {
+                txnsBody.innerHTML = txns.map(t => {
+                    let badgeClass = "badge-emerald";
+                    let sign = "+";
+                    let amountColor = "var(--brand-emerald)";
+                    let description = t.notes || (t.type === "DEPOSIT" ? "Money deposited" : t.type === "WITHDRAW" ? "Money withdrawn" : "Fund Transfer");
+
+                    if (t.type === "WITHDRAW") {
+                        badgeClass = "badge-rose";
+                        sign = "−";
+                        amountColor = "var(--danger)";
+                    } else if (t.type === "TRANSFER") {
+                        badgeClass = "badge-gold";
+                        sign = "⇄";
+                        amountColor = "var(--brand-navy)";
+                    }
+
+                    const timeStr = new Date(t.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                    return `
+                        <tr>
+                            <td style="font-weight: 600; color: var(--brand-navy);">${description}</td>
+                            <td style="font-size: 0.85rem; color: var(--text-secondary); font-variant-numeric: tabular-nums;">
+                                ${t.sourceAccount} ${t.destinationAccount ? ` &rarr; ${t.destinationAccount}` : ''}
+                            </td>
+                            <td><span class="badge ${badgeClass}">${t.type}</span></td>
+                            <td style="font-weight: 700; color: ${amountColor}; font-variant-numeric: tabular-nums;">
+                                ${sign} ${BankStore.formatCurrency(t.amount)}
+                            </td>
+                            <td style="font-size: 0.8rem; color: var(--text-secondary);">${timeStr}</td>
+                            <td><span class="badge badge-emerald">${t.status}</span></td>
+                        </tr>
+                    `;
+                }).join("");
+            }
+        });
+    </script>
+</body>
+</html>
