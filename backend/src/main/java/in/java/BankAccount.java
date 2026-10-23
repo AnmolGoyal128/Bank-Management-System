@@ -11,7 +11,7 @@ public class BankAccount {
         this.customer = customer;
     }
 
-    public double deposite(double amount) {
+    public double deposit(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive and greater than 0");
         }
